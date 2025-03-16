@@ -75,7 +75,7 @@ def get_original_url(short_code):
         "updatedAt": short_url.updated_at
     }), 200
 
-# 3. Update Short URL (PUT)
+
 @app.route('/shorten/<short_code>', methods=['PUT'])
 def update_short_url(short_code):
     short_url = ShortURL.query.filter_by(short_code=short_code).first()
@@ -97,7 +97,7 @@ def update_short_url(short_code):
         "updatedAt": short_url.updated_at
     }), 200
 
-# 4. Delete Short URL (DELETE)
+
 @app.route('/shorten/<short_code>', methods=['DELETE'])
 def delete_short_url(short_code):
     short_url = ShortURL.query.filter_by(short_code=short_code).first()
