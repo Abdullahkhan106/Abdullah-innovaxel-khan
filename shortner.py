@@ -17,7 +17,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
 
-# Define Database Model
+
 class ShortURL(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     url = db.Column(db.String(2048), nullable=False)
@@ -35,7 +35,7 @@ with app.app_context():
     db.create_all()
 
 # 1. Create Short URL (POST)
-@app.route('/shorten', methods=['POST'])
+@app.route('/shorten', meDefinethods=['POST'])
 def create_short_url():
     data = request.get_json()
     if 'url' not in data:
