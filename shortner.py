@@ -30,7 +30,7 @@ class ShortURL(db.Model):
 def generate_shortcode():
     return ''.join(random.choices(string.ascii_letters + string.digits, k=6))
 
-# Create Database (Run only once)
+
 with app.app_context():
     db.create_all()
 
