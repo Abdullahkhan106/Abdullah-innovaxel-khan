@@ -34,7 +34,7 @@ def generate_shortcode():
 with app.app_context():
     db.create_all()
 
-# 1. Create Short URL (POST)
+
 @app.route('/shorten', meDefinethods=['POST'])
 def create_short_url():
     data = request.get_json()
