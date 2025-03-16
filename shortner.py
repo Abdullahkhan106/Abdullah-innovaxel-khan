@@ -107,9 +107,9 @@ def delete_short_url(short_code):
     db.session.delete(short_url)
     db.session.commit()
 
-    return '', 204  # No Content
+    return '', 204  
 
-# 5. Get URL Statistics (GET)
+
 @app.route('/shorten/<short_code>/stats', methods=['GET'])
 def get_url_stats(short_code):
     short_url = ShortURL.query.filter_by(short_code=short_code).first()
