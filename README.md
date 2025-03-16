@@ -44,8 +44,9 @@ This application provides a URL shortening service that allows users to create, 
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/firstname-innovaxel-lastname.git
-   cd firstname-innovaxel-lastname
+   git clone https://github.com/abdullahkhan/innovaxel.git
+   cd innovaxel
+
    ```
 
 2. Create and activate a virtual environment:
