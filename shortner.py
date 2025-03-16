@@ -110,6 +110,7 @@ def delete_short_url(short_code):
     return '', 204  
 
 
+
 @app.route('/shorten/<short_code>/stats', methods=['GET'])
 def get_url_stats(short_code):
     short_url = ShortURL.query.filter_by(short_code=short_code).first()
