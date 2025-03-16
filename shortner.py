@@ -4,10 +4,9 @@ import random, string
 from datetime import datetime
 import os
 
-# Initialize Flask app
+
 app = Flask(__name__)
 
-# Define the SQLite database path (saved in the current folder)
 BASE_DIR = os.path.abspath(os.path.dirname(__file__))
 DATABASE_PATH = os.path.join(BASE_DIR, "database.db")
 
@@ -123,9 +122,9 @@ def get_url_stats(short_code):
         "shortCode": short_url.short_code,
         "createdAt": short_url.created_at,
         "updatedAt": short_url.updated_at,
-        "accessCount": short_url.access_count
+        "accessCount": short_url.access_count 
     }), 200
 
-# Run Flask App
 if __name__ == '__main__':
     app.run(debug=True)
+
