@@ -26,7 +26,7 @@ class ShortURL(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
     access_count = db.Column(db.Integer, default=0)
 
-# Function to Generate a Unique Short Code
+
 def generate_shortcode():
     return ''.join(random.choices(string.ascii_letters + string.digits, k=6))
 
