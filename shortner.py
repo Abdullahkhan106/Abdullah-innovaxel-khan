@@ -57,7 +57,7 @@ def create_short_url():
         "updatedAt": new_url.updated_at
     }), 201
 
-# 2. Retrieve Original URL (GET)
+
 @app.route('/shorten/<short_code>', methods=['GET'])
 def get_original_url(short_code):
     short_url = ShortURL.query.filter_by(short_code=short_code).first()
