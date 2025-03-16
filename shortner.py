@@ -14,7 +14,7 @@ DATABASE_PATH = os.path.join(BASE_DIR, "database.db")
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{DATABASE_PATH}'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-# Initialize SQLAlchemy
+
 db = SQLAlchemy(app)
 
 # Define Database Model
