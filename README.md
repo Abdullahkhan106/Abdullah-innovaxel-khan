@@ -1,15 +1,15 @@
 # Abdullah-innovaxel-khan
 # URL Shortener API
 
-A RESTful API service for shortening URLs built with Flask and SQLITE.
+A simple and efficient RESTful API service for shortening URLs, built with Flask and SQLite.
 
 ## Overview
 
-This application provides a URL shortening service that allows users to create, retrieve, update, and delete short URLs. It also tracks statistics about how many times each short URL has been accessed.
+This application provides a URL shortening service that allows users to create, retrieve, update, and delete short URLs. It also tracks statistics on how many times each short URL has been accessed.
 
 ## Features
 
-- Create short URLs from long URLs
+- Shorten long URLs into short, manageable links
 - Retrieve original URLs using short codes
 - Update existing short URLs
 - Delete short URLs
@@ -18,36 +18,34 @@ This application provides a URL shortening service that allows users to create, 
 ## Technology Stack
 
 - Backend: Flask (Python)
-- Database: SQLITE
+- Database: SQLite
 - ORM: SQLAlchemy
 
 ## API Endpoints
 
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/shorten` | POST | Create a new short URL |
-| `/shorten/<short_code>` | GET | Retrieve details of a short URL |
-| `/shorten/<short_code>` | PUT | Update an existing short URL |
-| `/shorten/<short_code>` | DELETE | Delete a short URL |
-| `/shorten/<short_code>/stats` | GET | Get usage statistics for a short URL |
-| '/shorten/<short_code>/stats' | GET | Redirect to the original URL |
+| Endpoint                      | Method | Description                          |
+|--------------------------------|--------|--------------------------------------|
+| `/shorten`                    | POST   | Create a new short URL              |
+| `/shorten/<short_code>`       | GET    | Retrieve details of a short URL     |
+| `/shorten/<short_code>`       | PUT    | Update an existing short URL        |
+| `/shorten/<short_code>`       | DELETE | Delete a short URL                  |
+| `/shorten/<short_code>/stats` | GET    | Get usage statistics for a short URL |
+| `/r/<short_code>`             | GET    | Redirect to the original URL        |
 
 ## Setup Instructions
 
 ### Prerequisites
 
 - Python 3.8+
-- MySQL database
-- pip (Python package installer)
+- SQLite (built-in with Python)
+- `pip` (Python package manager)
 
 ### Installation
 
 1. Clone the repository:
    ```
-   git clone https://github.com/yourusername/firstname-innovaxel-lastname.git
+  git clone https://github.com/Abdullahkhan106/Abdullah-innovaxel-khan.git
    cd Abdullah-innovaxel-khan
-
-
    ```
 
 2. Create and activate a virtual environment:
@@ -61,18 +59,9 @@ This application provides a URL shortening service that allows users to create, 
    pip install -r requirements.txt
    ```
 
-4. Set up MySQL database:
-   ```sql
-   CREATE DATABASE url_shortener;
-   USE url_shortener;
+4. Initialize the database:
    ```
-
-
-5. Initialize the database:
-   ```
-   flask db init
-   flask db migrate
-   flask db upgrade
+   python db_setup.py
    ```
 
 ### Running the Application
@@ -83,14 +72,13 @@ This application provides a URL shortening service that allows users to create, 
    ```
 
 2. Access the application:
-   - Web interface: http://localhost:5000
-   - API: http://localhost:5000/shorten
+   - API base URL: `http://localhost:5000`
 
 ## Usage Examples
 
 ### Create a short URL
 
-```bash
+```
 curl -X POST http://localhost:5000/shorten \
   -H "Content-Type: application/json" \
   -d '{"url": "https://www.example.com/some/long/url"}'
@@ -98,13 +86,13 @@ curl -X POST http://localhost:5000/shorten \
 
 ### Retrieve a short URL
 
-```bash
+```
 curl -X GET http://localhost:5000/shorten/abc123
 ```
 
 ### Update a short URL
 
-```bash
+```
 curl -X PUT http://localhost:5000/shorten/abc123 \
   -H "Content-Type: application/json" \
   -d '{"url": "https://www.example.com/updated/url"}'
@@ -112,34 +100,37 @@ curl -X PUT http://localhost:5000/shorten/abc123 \
 
 ### Delete a short URL
 
-```bash
+```
 curl -X DELETE http://localhost:5000/shorten/abc123
 ```
 
 ### Get statistics for a short URL
 
-```bash
+```
 curl -X GET http://localhost:5000/shorten/abc123/stats
 ```
 
 ## Development Notes
 
-- The application uses SQLAlchemy as an ORM for database interactions
-- Short codes are generated randomly and are guaranteed to be unique
-- The application validates URLs to ensure they are properly formatted
-- Access counts are tracked for each short URL
-- The web interface provides a simple way to create and use short URLs
+- Uses SQLAlchemy as the ORM for database interactions.
+- Short codes are generated uniquely and randomly.
+- Validates URLs to ensure proper formatting.
+- Tracks access counts for each short URL.
+- Simple web interface for managing URLs.
 
 ## Project Structure
 
 ```
 url-shortener/
-├── shortner.py              # Main application file
-├── config.py           # Configuration settings
-├── requirements.txt    # Project dependencies
+├── app.py                # Main application file
+├── db_setup.py           # Database setup script
+├── models.py             # Database models
+├── config.py             # Configuration settings
+├── requirements.txt      # Project dependencies
+└── README.md             # Project documentation
 ```
 
-## Future Improvements
+## Future Enhancements
 
 - User authentication and authorization
 - Custom short code selection
@@ -151,3 +142,5 @@ url-shortener/
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
+
+
